@@ -11,9 +11,9 @@ public class Drive
 		    return;
 	    }
 	    // get the save location of the filename
-	    String filename = args[0];
+	    String dbName = args[0];
 	    Utils.load();
-	    Utils.createDB(filename);
+	    Utils.createDB(dbName);
 
 	    // Create the table
 	    Utils.createTable("TestData");

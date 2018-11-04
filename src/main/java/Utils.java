@@ -6,13 +6,13 @@ public class Utils {
 	//@formatter:off
 	private static String INSERT_COLS = "(pk,ht,tt,ot,hund,ten,filler) VALUES(?,?,?,?,?,?,?)";
 	private static String CREATE_TABLE_COLS = "(" +
-            "    pk     STRING PRIMARY KEY," +
+            "    pk     CHARACTER(36) PRIMARY KEY," +
             "    ht     INTEGER," +
             "    tt     INTEGER," +
             "    ot     INTEGER," +
             "    hund   INTEGER," +
             "    ten    INTEGER," +
-            "    filler STRING (236)" +
+            "    filler CHARACTER (236)" +
             ");";
 	private static String DROP_TABLE_PREFIX = "DROP TABLE ";
 	private static String COLUMN_A_INDEX = "CREATE INDEX columnA_index on benchmark(columnA)";
@@ -48,6 +48,7 @@ public class Utils {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+		url += databasename;
 
 	}
 
