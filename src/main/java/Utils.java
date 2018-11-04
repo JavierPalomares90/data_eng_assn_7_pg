@@ -1,5 +1,6 @@
 import java.sql.*;
 import java.util.List;
+import java.util.Properties;
 
 public class Utils {
 	//@formatter:off
@@ -34,26 +35,26 @@ public class Utils {
 	public static int[] columnAVals = {10301,23,308,7785,45898,867,73,88,343,234};
 	public static int[] columnBVals = {18775,3564,87,4787,5,92,345,48998,12,9};
 
-	private static String url = "jdbc:sqlite:C:/Users/javie/Documents/Data_Engineering/hw2.db";
+	private static String url = "jdbc:postgresql://localhost/";
 
-	public static void createDB(String filename){
-		url = "jdbc:sqlite:" + filename;
+	public static void createDB(String databasename){
 		try {
-			Connection conn = DriverManager.getConnection(url);
+			Connection conn = Utils.connect(url);
 			if (conn != null) {
-				DatabaseMetaData meta = conn.getMetaData();
-				System.out.println("The driver name is " + meta.getDriverName());
-				System.out.println("A new database has been created.");
+			    Statement statement = conn.createStatement();
+			    statement.executeUpdate("CREATE DATABASE " + databasename);
+			    Utils.closeConnection(conn);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+
 	}
 
 	public static void load(){
 		try
 		{
-			Class.forName("org.sqlite.JDBC");
+			Class.forName("org.postgresql.jdbc.PgConnection");
 		} catch (ClassNotFoundException e)
 		{
 			e.printStackTrace();
@@ -207,7 +208,11 @@ public class Utils {
 			// db parameters
 			// Change this to the appropriate path
 			// create a connection to the database
-			conn = DriverManager.getConnection(url);
+			Properties props = new Properties();
+			props.setProperty("user","postgres");
+			props.setProperty("password","Roosterteeth1.");
+			props.setProperty("ssl","false");
+			conn = DriverManager.getConnection(url,props);
 
 			System.out.println("Connection to SQLite has been established.");
 
