@@ -6,7 +6,7 @@ public class Utils {
 	//@formatter:off
 	private static String INSERT_COLS = "(pk,ht,tt,ot,hund,ten,filler) VALUES(?,?,?,?,?,?,?)";
 	private static String CREATE_TABLE_COLS = "(" +
-            "    pk     CHARACTER(36) PRIMARY KEY," +
+            "    pk     INTEGER PRIMARY KEY," +
             "    ht     INTEGER," +
             "    tt     INTEGER," +
             "    ot     INTEGER," +
@@ -421,7 +421,7 @@ public class Utils {
             statement = conn.prepareStatement("INSERT INTO " + tableName + INSERT_COLS);
             for(TableRow row: rows)
 			{
-			    statement.setString(1,row.pk);
+			    statement.setInt(1,row.pk);
 				statement.setInt(2, row.ht);
 				statement.setInt(3, row.tt);
 				statement.setInt(4, row.ot);

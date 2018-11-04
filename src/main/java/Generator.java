@@ -20,7 +20,7 @@ public class Generator {
 	    Random r = new Random();
 	    for (int i = 0; i < numRows; i++){
 	        TableRow row = new TableRow();
-	        row.pk = UUID.randomUUID().toString();
+	        row.pk = i;
 	        row.ht = r.nextInt( (HT_MAX - MIN) + 1) + MIN;
             row.tt = r.nextInt( (TT_MAX - MIN) + 1) + MIN;
             row.ot = r.nextInt( (OT_MAX - MIN) + 1) + MIN;

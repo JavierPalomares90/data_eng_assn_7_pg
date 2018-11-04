@@ -1,5 +1,5 @@
 public class TableRow {
-	String pk;
+	Integer pk;
 	Integer ht;
 	Integer tt;
 	Integer ot;
