@@ -98,7 +98,8 @@ SELECT * FROM A_prime JOIN B_prime ON A_prime.ht = B_prime.ht JOIN C_prime ON B_
 SELECT * FROM A_prime JOIN B_prime ON A_prime.hund = B_prime.hund JOIN C_prime ON B_prime.hund = C_prime.hund
 
 /*18 */ 
-SELECT * FROM A_prime JOIN B_prime ON A_prime.ht = B_prime.ten JOIN C_prime ON B_prime.ten = C_prime.ht
+SELECT * FROM B_prime JOIN A_prime ON B_prime.ht = A_prime.ht JOIN C_prime ON C_prime.ht = B_prime.ht
+SELECT * FROM B_prime JOIN A_prime ON B_prime.hund = A_prime.hund JOIN C_prime ON C_prime.hund = B_prime.hund
 
 /*19 */
 SELECT * FROM A_prime,C_prime,A,B,B_prime,C 
@@ -133,7 +134,7 @@ JOIN A ON B.tt = A.ht
 /*23*/
 SELECT * FROM A
 JOIN B_prime ON A.pk = B_prime.tt
-JOIN C_prime ON B_primt.tt = C_prime.ot
+JOIN C_prime ON B_prime.tt = C_prime.ot
 
 /*24*/
 SELECT *FROM C_prime
