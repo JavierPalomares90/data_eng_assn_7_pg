@@ -87,7 +87,7 @@ SELECT * FROM A JOIN B ON A.pk = B.ht JOIN C ON B.ht = C.ht
 /*14*/
 SELECT * FROM A JOIN B ON A.pk = B.hund JOIN C ON B.hund = C.hund
 
-/*15 TODO: Check if 13 and 14 produce different results */
+/*15. Do 13 and 14 produce different results? */
 /** 13 hash joins a,b then hashjoins c. 
     14 hash joins a,b then hashjoincs c. 13 and 14 produce the same plan **/
 
@@ -97,7 +97,7 @@ SELECT * FROM A_prime JOIN B_prime ON A_prime.ht = B_prime.ht JOIN C_prime ON B_
 /*17*/
 SELECT * FROM A_prime JOIN B_prime ON A_prime.hund = B_prime.hund JOIN C_prime ON B_prime.hund = C_prime.hund
 
-/*18 */ 
+/*18 Do 16 and 17 produce different results?*/ 
 SELECT * FROM B_prime JOIN A_prime ON B_prime.ht = A_prime.ht JOIN C_prime ON C_prime.ht = B_prime.ht
 SELECT * FROM B_prime JOIN A_prime ON B_prime.hund = A_prime.hund JOIN C_prime ON C_prime.hund = B_prime.hund
 
